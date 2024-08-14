@@ -1,5 +1,5 @@
 #include<stdio.h>
-//program to seach an element
+//program of linear seach
 //swaliha_59
 
    void main()
