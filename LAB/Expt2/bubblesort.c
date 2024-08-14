@@ -29,4 +29,21 @@ void main()
                   printf("%d",arr[i]);
                   }
            }
+
+
+Output
+
+
+enter the size of array5
+enter the elements
+33
+56
+14
+99
+455
+the sorted array is
+33      56      14      99      455
+[Process completed (code 4) - press Enter]
+
+
                   
