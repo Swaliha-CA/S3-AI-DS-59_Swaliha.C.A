@@ -1,0 +1,128 @@
+//Program of postfix evaluation
+
+//Swaliha_59
+
+#include <stdio.h>
+
+#define MAX_SIZE 100
+
+Int stack[MAX_SIZE];
+
+Int top = -1;
+
+Void push(int value) {
+
+    If (top < MAX_SIZE – 1) {
+
+        Stack[++top] = value;
+
+    } else {
+
+        Printf(“Stack overflow\n”);
+
+        Exit(1);
+
+    }
+
+}
+
+Int pop() {
+
+    If (top >= 0) {
+
+        Return stack[top--];
+
+    } else {
+
+        Printf(“Stack underflow\n”);
+
+        Exit(1);
+
+    }
+
+}
+
+Int evaluatePostfix(char* postfix) {
+
+    Int I;
+
+    For (I = 0; I < strlen(postfix); i++) {
+
+        If (isdigit(postfix[i])) {
+
+            Push(postfix[i] – ‘0’); 
+
+        } else {
+
+            Int operand2 = pop();
+
+            Int operand1 = pop();
+
+            Switch (postfix[i]) {
+
+                Case ‘+’:
+
+                    Push(operand1 + operand2);
+
+                    Break;
+
+                Case ‘-‘:
+
+                    Push(operand1 – operand2);
+
+                    Break;
+
+                Case ‘*’:
+
+                    Push(operand1 * operand2);
+
+                    Break;
+
+                Case ‘/’:
+
+                    If (operand2 != 0) {
+
+                        Push(operand1 / operand2);
+
+                    } else {
+
+                        Printf(“Division by zero\n”);
+
+                        Exit(1);
+
+                    }
+
+                    Break;
+
+                Default:
+
+                    Printf(“Invalid operator: %c\n”, postfix[i]);
+
+                    Exit(1);
+
+            }
+
+        }
+
+    }
+
+    Return pop();
+
+}
+
+Int main() {
+
+    Char postfix[MAX_SIZE];
+
+  Printf(“Enter postfix expression: “);
+
+    Scanf(“%s”, postfix);
+
+  Int result = evaluatePostfix(postfix);
+
+    Printf(“Result: %d\n”, result);
+
+    Return 0;
+
+}
+
