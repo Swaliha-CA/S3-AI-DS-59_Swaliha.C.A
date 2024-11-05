@@ -119,3 +119,10 @@ int main() {
 
     return 0;
 }
+
+
+OUTPUT
+
+Top element is 44
+Removing two elements...
+Top element is 22
