@@ -78,3 +78,8 @@ int main() {
 
     return 0;
 }
+
+OUTPUT
+Enter infix expression: fyt46+*/hgh
+Postfix expression: fyt46*hgh/+
+
