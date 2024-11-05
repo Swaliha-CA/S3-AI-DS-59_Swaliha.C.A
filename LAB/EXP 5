@@ -44,4 +44,17 @@ int main() {
 }
 
 
+OUTPUT
+
+Enter the array limit: 5
+Enter 5 elements in sorted order:
+1
+2
+4
+88
+7
+Enter the element to search: 88
+ELEMENT FOUND AT POSITION- 4 
+
+
 
