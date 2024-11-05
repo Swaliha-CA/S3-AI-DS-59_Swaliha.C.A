@@ -449,3 +449,44 @@ int main()
     }
     return 0;
 }
+
+
+OUTPUT
+
+Enter the number of nodes: 5
+
+Enter number to be inserted : 6
+
+Enter number to be inserted : 7
+
+Enter number to be inserted : 8
+
+Enter number to be inserted : 9
+
+Enter number to be inserted : 0
+
+The list is created
+
+	1 To see list
+	2 For insertion at starting
+	3 For insertion at end
+	4 For insertion at any position
+	5 For deletion of first element
+	6 For deletion of last element
+	7 For deletion of element at any position
+	8 To find maximum among the elements
+	9 To find mean of the elements
+	10 To sort element
+	11 To reverse the linked list
+	12 Search an element in linked list
+	13 To exit
+
+Enter Choice :
+1
+Data = 6
+Data = 7
+Data = 8
+Data = 9
+Data = 0
+
+
