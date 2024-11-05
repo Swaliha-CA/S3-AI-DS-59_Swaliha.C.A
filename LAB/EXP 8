@@ -1,128 +1,83 @@
-//Program of postfix evaluation
-
+//implementation of postfix evaluation
 //Swaliha_59
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include<ctype.h>
+
 
 #define MAX_SIZE 100
 
-Int stack[MAX_SIZE];
+int stack[MAX_SIZE];
+int top = -1;
 
-Int top = -1;
-
-Void push(int value) {
-
-    If (top < MAX_SIZE – 1) {
-
-        Stack[++top] = value;
-
+void push(int value) {
+    if (top < MAX_SIZE - 1) {
+        stack[++top] = value;
     } else {
-
-        Printf(“Stack overflow\n”);
-
-        Exit(1);
-
+        printf("Stack overflow\n");
+        exit(1);
     }
-
 }
 
-Int pop() {
-
-    If (top >= 0) {
-
-        Return stack[top--];
-
+int pop() {
+    if (top >= 0) {
+        return stack[top--];
     } else {
-
-        Printf(“Stack underflow\n”);
-
-        Exit(1);
-
+        printf("Stack underflow\n");
+        exit(1);
     }
-
 }
 
-Int evaluatePostfix(char* postfix) {
-
-    Int I;
-
-    For (I = 0; I < strlen(postfix); i++) {
-
-        If (isdigit(postfix[i])) {
-
-            Push(postfix[i] – ‘0’); 
-
+int evaluatePostfix(char* postfix) {
+    for (int i = 0; i < strlen(postfix); i++) {
+        if (isdigit(postfix[i])) {
+            push(postfix[i] - '0'); // Convert character to integer
         } else {
+            int operand2 = pop();
+            int operand1 = pop();
 
-            Int operand2 = pop();
-
-            Int operand1 = pop();
-
-            Switch (postfix[i]) {
-
-                Case ‘+’:
-
-                    Push(operand1 + operand2);
-
-                    Break;
-
-                Case ‘-‘:
-
-                    Push(operand1 – operand2);
-
-                    Break;
-
-                Case ‘*’:
-
-                    Push(operand1 * operand2);
-
-                    Break;
-
-                Case ‘/’:
-
-                    If (operand2 != 0) {
-
-                        Push(operand1 / operand2);
-
+            switch (postfix[i]) {
+                case '+':
+                    push(operand1 + operand2);
+                    break;
+                case '-':
+                    push(operand1 - operand2);
+                    break;
+                case '*':
+                    push(operand1 * operand2);
+                    break;
+                case '/':
+                    if (operand2 != 0) {
+                        push(operand1 / operand2);
                     } else {
-
-                        Printf(“Division by zero\n”);
-
-                        Exit(1);
-
+                        printf("Division by zero\n");
+                        exit(1);
                     }
-
-                    Break;
-
-                Default:
-
-                    Printf(“Invalid operator: %c\n”, postfix[i]);
-
-                    Exit(1);
-
+                    break;
+                default:
+                    printf("Invalid operator: %c\n", postfix[i]);
+                    exit(1);
             }
-
         }
-
     }
 
-    Return pop();
-
+    return pop();
 }
 
-Int main() {
+int main() {
+    char postfix[MAX_SIZE];
 
-    Char postfix[MAX_SIZE];
+    printf("Enter postfix expression: ");
+    scanf("%s", postfix);
 
-  Printf(“Enter postfix expression: “);
+    int result = evaluatePostfix(postfix);
+    printf("Result: %d\n", result);
 
-    Scanf(“%s”, postfix);
-
-  Int result = evaluatePostfix(postfix);
-
-    Printf(“Result: %d\n”, result);
-
-    Return 0;
-
+    return 0;
 }
 
+
+OUTPUT
+Enter postfix expression: 2548+-515*54   
+Result: 4
