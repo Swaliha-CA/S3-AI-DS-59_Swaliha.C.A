@@ -1,8 +1,7 @@
-#include<stdio.h>
-//program of linear seach
+//program of linear search
 //swaliha_59
-
-   void main()
+#include<stdio.h>
+ void main()
    {
     int search,n,i,arr[10];
     printf("enter the number of elements");
