@@ -39,14 +39,12 @@ int main() {
     struct poly poly1[10], poly2[10], result[20];
     int row1, row2, t3;
 
-    // Example input for polynomial 1
     row1 = 4;
     poly1[0].coefficient = 5; poly1[0].exponent = 3;
     poly1[1].coefficient = 4; poly1[1].exponent = 2;
     poly1[2].coefficient = 3; poly1[2].exponent = 1;
     poly1[3].coefficient = 1; poly1[3].exponent = 0;
 
-    // Example input for polynomial 2
     row2 = 3;
     poly2[0].coefficient = 8; poly2[0].exponent = 3;
     poly2[1].coefficient = 2; poly2[1].exponent = 1;
